@@ -95,7 +95,7 @@ def clusterCalc(matrix, est1, est2):
                 break
 
             if np.sum(est1[elem[0] - 1]) < np.sum(est1[k - 1]) or np.sum(est2[elem[0] - 1]) < np.sum(est2[k - 1]):
-                result = result[:i] + clusters[k] + result[i:]
+                result = result[:i] + [clusters[k]] + result[i:]
                 break_mark = True
                 break
         if not break_mark:
@@ -128,6 +128,8 @@ if __name__ == "__main__":
     string2 = '[[1,2,3],[4,5],6,7,9,[8,10]]'
     stringA = '[1,[2,3],4,[5,6,7],8,9,10]'
     stringB = '[[1,2],[3,4,5,],6,7,9,[8,10]]'
+    stringL = '[1,[2,3],4,[5,6,7],8,9,10]'
+    stringR = '[[1,3],[2,4,5,],6,7,8,[9,10]]'
     
-    results = task(stringA, stringB)
+    results = task(stringL, stringR)
     print(results)
